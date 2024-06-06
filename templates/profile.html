@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+        <div class="d-flex align-items-center mb-4">
+            <!-- Circular avatar with user's initials -->
+            <div class="avatar-circle mr-3" style="background-color: #2c53df; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+                <span class="initials">{{ current_user.username[0] }}</span>
+            </div>
+            <!-- Display user's name -->
+            <h2 class="mb-0" style="font-size: 28px;">{{ current_user.username }}</h2>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <!-- User Information Section -->
+                <div class="user-info mb-4">
+                    <p><strong>ID:</strong> {{ current_user.id }}</p>
+                    <p><strong>Email:</strong> {{ current_user.email }}</p>
+                    <p><strong>Phone Number:</strong> {{ current_user.phone_number }}</p>
+                </div>
+                <!-- Purchased Services Section -->
+                <h5 class="mt-4 mb-3">Purchased Services:</h5>
+                {% if purchasedservices %}
+                    <div class="purchased-services">
+                        {% for service in purchasedservices %}
+                            <div class="service-card">
+                                <div class="service-details">
+                                    <strong>{{ service.service_type }} - {{ service.service_number }}</strong>
+                                    {% if service.service_type == 'BYOD' %}
+                                        <p>{{ byod_descriptions[service.service_number] }}</p>
+                                    {% elif service.service_type == 'Fiber' %}
+                                        <p>{{ fiber_descriptions[service.service_number] }}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p>No purchased services yet.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Avatar circle styling */
+    .avatar-circle {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Initials styling */
+    .initials {
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    /* User Information styling */
+    .user-info p {
+        margin-bottom: 8px;
+    }
+
+    /* Purchased Services styling */
+    .service-card {
+    /* Gradient background */
+    background: linear-gradient(to top right, #87CEEB, #2d4fcb, #87CEEB);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: white; /* Text color */
+}
+
+
+    .service-details p {
+        margin-top: 8px;
+    }
+</style>
+
+{% endblock %}

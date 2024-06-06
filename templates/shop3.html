@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <ul class="nav nav-tabs justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link active" id="mobility-tab" data-toggle="tab" href="#mobility" role="tab" aria-controls="mobility" aria-selected="true">Mobility</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="internet-tab" data-toggle="tab" href="#internet" role="tab" aria-controls="internet" aria-selected="false">Internet</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="mobility" role="tabpanel" aria-labelledby="mobility-tab">
+                <div class="card bg-light-purple mt-3">
+                    <div class="card-body">
+                        <div class="card mb-3 bg-purple">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title">BYOD 1</h5>
+                                    <div class="rounded-pill bg-gradient text-white px-2 py-1">
+                                        <div class="service-type-box">4G</div>
+                                    </div>
+                                </div>
+                                <p class="card-text">$29 for 25 GB<br>Unlimited Canada-wide calling and texting<br>SD video streaming</p>
+                            </div>
+                        </div>
+                        <div class="card mb-3 bg-purple">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title">BYOD 2</h5>
+                                    <div class="rounded-pill bg-gradient text-white px-2 py-1">
+                                        <div class="service-type-box">4G</div>
+                                    </div>
+                                </div>
+                                <p class="card-text">$34 for 50 GB<br>Unlimited Canada-wide calling and texting<br>SD video streaming</p>
+                            </div>
+                        </div>
+                        <div class="card mb-3 bg-purple">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title">BYOD 3</h5>
+                                    <div class="rounded-pill bg-gradient text-white px-2 py-1">
+                                        <div class="service-type-box">5G</div>
+                                    </div>
+                                </div>
+                                <p class="card-text">$39 for 60 GB<br>Unlimited Canada-wide calling and texting<br>HD video streaming</p>
+                            </div>
+                        </div>
+                        <div class="card mb-3 bg-purple">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title">BYOD 4</h5>
+                                    <div class="rounded-pill bg-gradient text-white px-2 py-1">
+                                        <div class="service-type-box">5G</div>
+                                    </div>
+                                </div>
+                                <p class="card-text">$50 for 60 GB<br>Unlimited Canada & US-wide calling and texting<br>HD video streaming</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="internet" role="tabpanel" aria-labelledby="internet-tab">
+                <div class="card bg-light-purple mt-3">
+                    <div class="card-body">
+                        <div class="card mb-3 bg-purple">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title">Fiber 500</h5>
+                                    <div class="rounded-pill bg-gradient text-white px-2 py-1">
+                                        <div class="service-type-box">PURE FIBRE</div>
+                                    </div>
+                                </div>
+                                <p class="card-text">Max Upload Speed 500 Mbps<br>Max Download Speed 500 Mbps<br>Unlimited monthly usage<br>Wi-Fi 6e included</p>
+                            </div>
+                        </div>
+                        <div class="card mb-3 bg-purple">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title">Fiber 1.0</h5>
+                                    <div class="rounded-pill bg-gradient text-white px-2 py-1">
+                                        <div class="service-type-box">PURE FIBRE</div>
+                                    </div>
+                                </div>
+                                <p class="card-text">Max Upload Speed 1 Gbps<br>Max Download Speed 940 Mbps<br>Unlimited monthly usage<br>Wi-Fi 6e included</p>
+                            </div>
+                        </div>
+                        <div class="card mb-3 bg-purple">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="card-title">Fiber 3.0</h5>
+                                    <div class="rounded-pill bg-gradient text-white px-2 py-1">
+                                        <div class="service-type-box">PURE FIBRE</div>
+                                    </div>
+                                </div>
+                                <p class="card-text">Max Upload Speed 3 Gbps<br>Max Download Speed 3 Gbps<br>Unlimited monthly usage<br>Wi-Fi 6e included</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-5"></div> <!-- Add spacing between the content above and the purchase form -->
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header purchase-header">Purchase a Service</div>
+                <div class="card-body">
+                    <form method="POST" class="purchase-form">
+                        {{ form.hidden_tag() }}
+                        <div class="form-group">
+                            {{ form.service_type.label(class="form-control-label") }}
+                            {{ form.service_type(class="form-control") }}
+                        </div>
+                        <div class="form-group">
+                            {{ form.service_number.label(class="form-control-label") }}
+                            {{ form.service_number(class="form-control") }}
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Purchase</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .purchase-header {
+        background: linear-gradient(to right, #007bff, #0056b3); /* Blue gradient from left to right */
+        color: white; /* Text color */
+        padding: 10px; /* Add padding */
+        border-top-left-radius: 10px; /* Border radius for top left corner */
+        border-top-right-radius: 10px; /* Border radius for top right corner */
+    }
+
+    
+            /*border-bottom: 1px solid #ddd; /* Light gray border */
+            /*font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+            /*padding: 15px 0; /* Add some padding */
+</style>
+
+<style>
+    .service-type-box {
+        background-color: #0f5ed4; /* Mildly dark blue color */
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+</style>
+
+<style>
+    /* Custom styling for flash messages */
+    .flash-message.success {
+        background-color: #87CEEB; /* Blue color for success messages */
+        color: white; /* Text color */
+    }
+</style>
+{% endblock %}

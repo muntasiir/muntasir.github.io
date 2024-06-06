@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block content %}
+<body class="gradient-background">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center mb-4"><span class="flare-register">Flare Register</span></h5>
+                        <form method="POST">
+                            {{ form.hidden_tag() }}
+                            <div class="form-group">
+                                {{ form.username.label(class="form-control-label") }}
+                                {{ form.username(class="form-control") }}
+                            </div>
+                            <div class="form-group">
+                                {{ form.email.label(class="form-control-label") }}
+                                {{ form.email(class="form-control") }}
+                            </div>
+                            <div class="form-group">
+                                {{ form.phone_number.label(class="form-control-label") }}
+                                {{ form.phone_number(class="form-control") }}
+                            </div>
+                            <div class="form-group">
+                                {{ form.password.label(class="form-control-label") }}
+                                {{ form.password(class="form-control") }}
+                            </div>
+                            <div class="form-group">
+                                {{ form.password2.label(class="form-control-label") }}
+                                {{ form.password2(class="form-control") }}
+                            </div>
+                            <div class="form-group">
+                                <label for="random_phone_number" class="form-control-label">Random Phone Numbers:</label>
+                                {% for phone_number in phone_numbers %}
+                                    <input type="text" class="form-control phone-number" value="{{ phone_number }}" readonly>
+                                {% endfor %}
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // Selects the text when a phone number field is clicked
+    document.querySelectorAll('.phone-number').forEach(item => {
+        item.addEventListener('click', event => {
+            event.target.select();
+        });
+    });
+</script>
+
+<style>
+    .gradient-background {
+        background: linear-gradient(to top right, #87CEEB, #00008B);
+        min-height: 100vh;
+        padding: 20px;
+    }
+
+    .flare-register {
+        background: linear-gradient(to top right, #87CEEB, #00008B);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+    }
+</style>
+{% endblock %}

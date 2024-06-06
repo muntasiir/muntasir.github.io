@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flare App Support</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #3048e2;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        nav {
+            background-color: #f4f4f4;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px;
+            font-size: 1.2rem;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: #1316e9;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        h2, h3, h4 {
+            color: #3048e2;
+            font-weight: bold;
+        }
+
+        h4 {
+            font-weight: normal;
+        }
+
+        p {
+            font-size: 1.1rem;
+        }
+
+        ol, ul {
+            margin-left: 20px;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            background-color: #151ecf;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Flare App Support</h1>
+    </header>
+
+
+    <section style="padding-bottom: 60px;">
+        <h2>Support</h2>
+        <p>Welcome to the support page of our telecom app. Here you can find resources and assistance to help you with any issues or inquiries you may have.</p>
+    
+        <h3>Frequently Asked Questions (FAQs)</h3>
+        <div>
+            <h4>Will I get charged data overage fees for going above limit?</h4>
+            <p>Yes, you will be charged $20 for every GB over the limit.</p>
+        </div>
+    
+        <div>
+            <h4>I am not getting the desired internet speed?</h4>
+            <p>Try these few troubleshooting tips:</p>
+            <ol>
+                <li>Remove any obstruction near the modem.</li>
+                <li>Check if the modem is still in-date. Place an order for a new one.</li>
+                <li>Check the cables.</li>
+            </ol>
+        </div>
+        
+        <div>
+            <h4>How can I change my subscription plan?</h4>
+            <p>You can change your subscription plan by visiting the 'Account Settings' section in your profile.</p>
+        </div>
+        
+        <div>
+            <h4>Do you offer discounts for long-term subscriptions?</h4>
+            <p>Yes, we offer discounts for annual subscription plans. Contact our customer support for more details.</p>
+        </div>
+        
+        <div>
+            <h4>What should I do if my device is lost or stolen?</h4>
+            <p>If your device is lost or stolen, please contact us immediately to suspend your service and prevent unauthorized usage.</p>
+        </div>
+    
+        <h3>Contact Us</h3>
+        <p>If you can't find the answer to your question in our FAQ section, feel free to contact us at support@flare.ca for further assistance.</p>
+        <a href="/contact">Contact</a>
+    </section>
+
+    <!-- Start of LiveChat (www.livechat.com) code -->
+    <script>
+        window.__lc = window.__lc || {};
+        window.__lc.license = 17694039;
+        ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+    </script>
+    <noscript><a href="https://www.livechat.com/chat-with/17694039/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+    <!-- End of LiveChat code -->
+    
+    <footer>
+        <p>&copy; 2024 Flare App. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+{% endblock %}

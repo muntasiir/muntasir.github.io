@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flare</title>
+    <link rel="icon" href="/static/o-logo-dna-icon-in-blue-colors-png_131008-removebg-preview.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/static/o-logo-dna-icon-in-blue-colors-png_131008-removebg-preview.png" type="image/x-icon">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .navbar-nav .nav-item {
+            margin-right: 10px;
+        }
+
+        /* Custom styling for the main navigation bar */
+        .navbar-main {
+            background: linear-gradient(to right, #007bff, #0056b3); /* Blue gradient from left to right */
+            border-bottom: 1px solid #ddd; /* Light gray border */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+            padding: 15px 0; /* Add some padding */
+        }
+
+        .navbar-main .navbar-brand {
+            color: #fff !important; /* White text color */
+            font-weight: bold; /* Bold font weight */
+            padding-left: 15px; /* Add padding to the left */
+        }
+
+        .navbar-main .nav-link {
+            color: #fff !important; /* White text color */
+            font-weight: bold; /* Bold font weight */
+        }
+
+        .navbar-main .nav-link:hover {
+            color: #f8f9fa !important; /* Light gray color on hover */
+        }
+
+        /* Custom styling for the secondary navbar */
+        .navbar-secondary {
+            background-color: transparent; /* Transparent background */
+            border: none; /* No border */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+            padding: 10px 0; /* Add some padding */
+        }
+
+        .navbar-secondary .navbar-nav {
+            margin: auto; /* Center align the navbar items */
+        }
+
+        .navbar-secondary .nav-link {
+            color: #007bff !important; /* Blue text color */
+            font-weight: bold; /* Bold font weight */
+        }
+
+        .navbar-secondary .nav-link:hover {
+            color: #0056b3 !important; /* Darker blue color on hover */
+        }
+    </style>
+</head>
+<body>
+    {% if current_user.is_authenticated %}
+    <!-- Main navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-main">
+        <a class="navbar-brand" href="#">Flare</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('shop') }}">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('profile') }}">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('support') }}">Support</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    {% endif %}
+    <div class="container mt-4">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        {% block content %}
+        {% endblock %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
